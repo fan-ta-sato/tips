@@ -30,3 +30,26 @@
       ```
       ~testQuick
       ```
+
+### ライブラリをローカルにjar化して読み込み
+
+1. GitHubからcloneしてくる
+1. `sbt publishLocal`する
+    * `~/.ivy2/local`配下にライブラリが作成される
+1. 自分のbuild.sbtに
+  ```
+  libraryDependencies ++= Seq(
+    "org.scalikejdbc"    %% "scalikejdbc"                 % "3.0.0-SNAPSHOT" changing(),
+  )
+  ```
+  みたいに書けば読み込まれる。
+    * 当然binary versionが一致している必要がある
+
+#### scalikejdbc
+
+* 以下のURLのように、version指定してpublishLocalを実行  
+  https://github.com/scalikejdbc/scalikejdbc/blob/master/travis.sh
+  ```
+  sbt '++ 2.12.1' root211/publishLocal
+  ```
+* tagsではなく、branchから取得してくる必要あり
