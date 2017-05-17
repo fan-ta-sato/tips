@@ -10,6 +10,14 @@
   ```
   最初の`;`が必須
 
+### javaOptions
+
+* `fork := false`なら、JAVA_OPTIONSの設定を読み込んでくれる。
+* `fork := true`だと、以下のようにする必要がある
+  ```
+  sbt ';project core ; scalacOptions += "-Dnend.env=ci"' test
+  ```
+
 ## test
 
 ### 特定のテストだけ実行
