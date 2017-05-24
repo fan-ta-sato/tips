@@ -61,3 +61,23 @@
   sbt '++ 2.12.1' root211/publishLocal
   ```
 * tagsではなく、branchから取得してくる必要あり
+
+## jarの作成 - assembly
+
+https://github.com/sbt/sbt-assembly
+
+* 依存を含めてjarを作成する
+* project/plugins.sbt
+  ```
+  addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.4")
+  ```
+* jarの作成
+  ```
+  sbt <project>/assembly
+  ```
+* jarファイル実行
+  ```
+  java -cp XXX.jar net.bar.foo.MainObject
+  ```
+    * 当たり前だがmainが指定されているか、Appをmixinしておく必要あり
+
