@@ -31,6 +31,14 @@
       ```
       testOnly net.baz.bar.FooSpec -- -z "foobarbaz"
       ```
+    * テストケースに追加
+      ```
+      testOnly "project core" -- -n net.baz.bar.FooSpec
+      ```
+    * テストケースから除外
+      ```
+      testOnly "project core" -- -l net.baz.bar.FooSpec
+      ```
 
 * testQuick
     * 失敗したテストだけ実行
